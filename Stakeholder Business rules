@@ -1,0 +1,49 @@
+
+I needed to get a key made so that I could get into (Building name) (room number) to let in my students.  
+Along  the  way,  I  learned  a  couple  of  interesting  things  about  the  lock  and  key 
+system at public university:
+ Keys  are  issued  by  Building  and  Maintenance  to  employees  (staff  or 
+faculty)  who  make  a  request.    Each  request  specifies  which  room  they 
+want access to, and the identity of the employee.  University employees 
+have an ID number, just like students.
+  o An employee can make more than one request to access a room.  
+They might get a key to that room, then return the key when they 
+no  longer  need  it,  and  then  get  assigned  to  teach  in  that  room 
+again later and they need to request access again.
+  o When the request is made, we track who made the request and 
+when it was made.
+ A room is uniquely identified by room number within a building.  Assume 
+the room number is an integer.  Do not worry about rooms that can be 
+subdivided.  That gets a bit more complex than we want to get into now.
+ Each room has at least one door.  Assume that the door has a name, like 
+“front”, “back”, “south”, and so forth.
+  o Assume that there are only a few possible names for a door.
+  o No two doors to a room will have the same name.
+ Every key issued is a copy of a master key.  For some reason, these master 
+keys are called “hooks”.  Don’t ask me why, I just work here.
+ Each  hook  will  open  several  doors,  and  each  door  could  be  opened  by 
+several hooks.  For instance, the back door to the university department office 
+will open for two of the keys that I have.
+ Not all the doors of a room will open for the same hook.  For instance, 
+the department office front door will not open for a key that I have, but 
+the back door will.
+ Each key is issued to an employee at a particular date and time.  
+Eventually, that employee will return that key.  At that point, that same 
+key  could  be  issued  to  some  other  employee.    We  keep  track  of  when 
+each  key  is  loaned  out,  and  when  it  was  returned  (once  it  has  been 
+returned).
+ Sometimes an employee loses their key.  When such a loss is reported, 
+we record that and charge the employee $25 for the key.
+ We  want  to  make  sure  that  we  never  issue  a  key  unless  it  has  been 
+requested.
+
+ We  want  to  make  sure  that  we  never  issue  two  keys  to  the  same 
+employee that are the same hook.  That would be silly since those two 
+keys on the same hook would be identical.
+  o The tricky part here is that an employee could get access to one 
+room,  return  the  key  for  that  room,  then  request  access  for 
+another room that happens to be the same hook.
+ In that case, the request would be granted since they no 
+longer have the first key.
+  o On  the  other  hand,  if  the  employee  still  has  the  first  key,  the 
+second request needs to be denied.
