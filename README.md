@@ -3,7 +3,7 @@ Project to gain experience using a programming language(Python) to interface bet
 
 # Description Phase 1
 
-The Key Hook Management System is a three-part term project that provices a programming interface for the user to interact with the database used to serialize data related to the key and lock system at a public university. This project is designed to help employees (staff or faculty) manage their access to rooms withi the university's buildings using a unique key hook system. 
+The Key Hook Management System is a three-part term project that provices a programming interface for the user to interact with the database used to serialize data related to the key and lock system at a public university. This project is designed to help employees (staff or faculty) manage their access to rooms within the university's buildings using a unique key hook system. 
 
 The project is designed to handle the followowing aspects of the key and lock system:
 
