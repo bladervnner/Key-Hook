@@ -19,7 +19,7 @@ The project is designed to handle the followowing aspects of the key and lock sy
 * Ensuring that a key is never issued unless it has been requested
 * Preventing the issuance of two identical keys to the same employee based on the same hook, including the handling of multiple access requests for rooms that share a hook
 
-The project is built using Python and is designed to provide a user-friendly interface for managing the keyh hook system. The aim of the project is to provide university staff and faculty with an efficient and effective tool fo rmanaging access to rooms within university buildings. 
+The project is built using Python and is designed to provide a user-friendly interface for managing the key hook system. The aim of the project is to provide university staff and faculty with an efficient and effective tool fo rmanaging access to rooms within university buildings. 
 
 ## Procedure Phase 1
 1. UML model all business rules from business rules (seperate file)
