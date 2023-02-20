@@ -19,12 +19,12 @@ The project is designed to handle the followowing aspects of the key and lock sy
 * Ensuring that a key is never issued unless it has been requested
 * Preventing the issuance of two identical keys to the same employee based on the same hook, including the handling of multiple access requests for rooms that share a hook
 
-The project is built using Python and is designed to provide a user-friendly interface for managing the key hook system. The aim of the project is to provide university staff and faculty with an efficient and effective tool fo rmanaging access to rooms within university buildings. 
+The project is built using Python and is designed to provide a user-friendly interface for managing the key hook system. The aim of the project is to provide university staff and faculty with an efficient and effective tool for managing access to rooms within university buildings. 
 
 ## Procedure Phase 1
 1. UML model all business rules from business rules (seperate file)
-2. For each of the business rules that cannot be implemented by the way the database is structured, write out pseudo code how those business rules will be inplemented using Python code.
-3. Once UML model (seperate file) has been completed, the next step is to build an ERD diagram. We will not implement tables for the ERD diagram however. Instead, SQLAlchemy will build the tables for us.
+2. For each of the business rules that cannot be implemented by the way the database is structured, write out pseudo code how those business rules will be implemented using Python code.
+3. Once UML model (seperate file) has been completed, the next step is to build an ERD diagram. We will not implement tables for the ERD diagram. Instead, SQLAlchemy will build the tables for us.
 
 # Description Phase 2
 Using SQLAlchemy to access a back-end database in PostgreSQL that is structured according to the phase 1 design
@@ -42,7 +42,7 @@ Used ERD from phase 1 and executed the CREATE TABLE statements that it produces.
  * Request access to a given room by a given employee
  * Capture the issue of a key to an employee
  * Capture losing a key
- * Report out all the rooms that an employee can enter, given the keys that he/she already has
+ * Report out all the rooms that an employee can enter, given the keys that they already have
  * Delete a key
  * Delete an employee
  * Add a new door that can be opened by an existing hook
@@ -54,7 +54,7 @@ Used ERD from phase 1 and executed the CREATE TABLE statements that it produces.
 This part of the phase was mostly an exploratory version of phase 2. The point was to do everything we did in phase 2 but using MongoDB instead of SQLAlchemy. This however led to inefficient code as MongoDB has its own strengths that were not fully utilized. The code still works, and I plan to continue to optimize it. 
 
 ## Procedure Phase 3
-Used UML from phase 1, the focus was on how to implement MongoDB. Had to be creative about how to capture decisions that were made regardign implementation strategy. 
+Used UML from phase 1, the focus was on how to implement MongoDB. Had to be creative about how to capture decisions that were made regarding implementation strategy. 
 MongoDB has several tools:
 * Uniqueness constraints
 * References (to simulate relationships)
@@ -97,7 +97,7 @@ Wrote Python application to update the rest of the collections with menu option 
 * Update an access request to move it to a new employee
 ** Prompt for the old employee
 ** Prompt for which access (by room) of theirs that you're to move
-** prompt for new employee
+** Prompt for new employee
 * Report out all the employees who can get into a room
 ** Prompt for the room
 ** List the employees by name
