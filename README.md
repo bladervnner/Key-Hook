@@ -24,7 +24,7 @@ The project is built using Python and is designed to provide a user-friendly int
 ## Procedure Phase 1
 1. UML model all business rules from business rules (seperate file)
 2. For each of the business rules that cannot be implemented by the way the database is structured, write out pseudo code how those business rules will be implemented using Python code.
-3. Once UML model (seperate file) has been completed, the next step is to build an ERD diagram. We will not implement tables for the ERD diagram. Instead, SQLAlchemy will build the tables for us.
+3. Once UML model (seperate file) has been completed, the next step is to build an ERD diagram. We will not implement tables for the ERD diagram. Instead, SQLAlchemy will build the tables.
 
 # Description Phase 2
 Using SQLAlchemy to access a back-end database in PostgreSQL that is structured according to the phase 1 design
