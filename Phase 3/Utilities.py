@@ -10,7 +10,7 @@ class Utilities:
         #password = getpass.getpass(prompt='MongoDB password --> ')
 
         #change cluster to your string from atlas accordingly
-        cluster = "mongodb+srv://rafiks7:test@cluster0.k70iogb.mongodb.net/?retryWrites=true&w=majority"
+        cluster = "mongodb+srv://<db>:test@cluster0.k70iogb.mongodb.net/?retryWrites=true&w=majority"
         client = MongoClient(cluster)
         db = client.Hook_Project
         return db
