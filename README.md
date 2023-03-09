@@ -80,9 +80,8 @@ Install PostgreSQL on your computer by following the instructions on their offic
 Create a new database in PostgreSQL by running the following command in the PostgreSQL command-line interface:
 
 sql
-Copy code
-CREATE DATABASE mydatabase;
-Install Datagrip on your computer by following the instructions on their official website. Once installed, open Datagrip and select "New Project" from the home screen.
+ > CREATE DATABASE mydatabase;
+  Install Datagrip on your computer by following the instructions on their       official website. Once installed, open Datagrip and select "New Project" from the   home screen.
 
 In the "New Project" window, select "Database" as the project type and select "PostgreSQL" as the database type. Enter the username and password that you set up during the PostgreSQL installation process, as well as the name of the database that you created in step 2.
 
