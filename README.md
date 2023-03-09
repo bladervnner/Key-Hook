@@ -29,51 +29,52 @@ This part of the phase was mostly an exploratory version of phase 2. The point w
 ## Procedure Phase 3
 Used UML from phase 1, the focus was on how to implement MongoDB. Had to be creative about how to capture decisions that were made regarding implementation strategy. 
 MongoDB has several tools:
-* Uniqueness constraints
-* References (to simulate relationships)
-* MongoDB schemas in collections
-Wrote Insert statements to populate:
-* Employees, Buildings, rooms, doors, hooks, and other junction collections between any two of those. 
-* Executed those outside of application to insert "seed" data
-Wrote Python application to update the rest of the collections with menu option to:
-* Create a new key
- * Present the user with a list of available hooks
- * Prompt them for which hook they will use to make the key
- * Generate the key number, serial number
-* Request access to a given room by a given employee
- * Present the user with a list of the Employees by name and prompt for which one
- * Present the user witha list of the buildings and rooms and prompt for which one
-* Capture the issue of a key to an employee
- * This could be part of giving access if you structured your data that way
- * Prompt them for the Access
- * Then code finds the existing key that meets that need, or code creates a new one on a hook that opens at least one of the doors to that room
-* Capture losing a key
- * Prompt user for the key request that was lost
- * Capture the date and time of the loss. Default to current date and time
-* Report out all the rooms that an employee can enter, given the keys that user already has
- * Prompt for the employee 
- * List the rooms that they have access to
-  * Order by building, then room
-  * Remove duplicates
-* Delete a key
- * Check for any references to that key
-  * Either delete the references first
-  * Or use try/catch block and let the user know that the key is in use and database cannot delete it
- * Only deletes key if it will not cause an exception to show on screen
-* Delete an employee
- * Same cautions as deleting key
-* Add a new door that can be opened by an existing hook
- * Prompt them for the hook
- * Prompt them for the Building
- * Propmpt then for the room
- * Provide a menu of available door names and prompt for which door they want
-* Update an access request to move it to a new employee
- * Prompt for the old employee
- * Prompt for which access (by room) of theirs that you're to move
- * Prompt for new employee
-* Report out all the employees who can get into a room
- * Prompt for the room
- * List the employees by name
+Markup : Bullet list
+ * Uniqueness constraints
+ * References (to simulate relationships)
+ * MongoDB schemas in collections
+ Wrote Insert statements to populate:
+ * Employees, Buildings, rooms, doors, hooks, and other junction collections between any two of those. 
+ * Executed those outside of application to insert "seed" data
+ Wrote Python application to update the rest of the collections with menu option to:
+ * Create a new key
+  * Present the user with a list of available hooks
+  * Prompt them for which hook they will use to make the key
+  * Generate the key number, serial number
+ * Request access to a given room by a given employee
+  * Present the user with a list of the Employees by name and prompt for which one
+  * Present the user witha list of the buildings and rooms and prompt for which one
+ * Capture the issue of a key to an employee
+  * This could be part of giving access if you structured your data that way
+  * Prompt them for the Access
+  * Then code finds the existing key that meets that need, or code creates a new one on a hook that opens at least one of the doors to that room
+ * Capture losing a key
+  * Prompt user for the key request that was lost
+  * Capture the date and time of the loss. Default to current date and time
+ * Report out all the rooms that an employee can enter, given the keys that user already has
+  * Prompt for the employee 
+  * List the rooms that they have access to
+   * Order by building, then room
+   * Remove duplicates
+ * Delete a key
+  * Check for any references to that key
+   * Either delete the references first
+   * Or use try/catch block and let the user know that the key is in use and database cannot delete it
+  * Only deletes key if it will not cause an exception to show on screen
+ * Delete an employee
+  * Same cautions as deleting key
+ * Add a new door that can be opened by an existing hook
+  * Prompt them for the hook
+  * Prompt them for the Building
+  * Propmpt then for the room
+  * Provide a menu of available door names and prompt for which door they want
+ * Update an access request to move it to a new employee
+  * Prompt for the old employee
+  * Prompt for which access (by room) of theirs that you're to move
+  * Prompt for new employee
+ * Report out all the employees who can get into a room
+  * Prompt for the room
+  * List the employees by name
 # Installation
 # Usage
 # Contributing
