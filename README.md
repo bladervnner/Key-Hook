@@ -81,7 +81,8 @@ Create a new database in PostgreSQL by running the following command in the Post
 
 sql
  > CREATE DATABASE mydatabase;
-  Install Datagrip on your computer by following the instructions on their       official website. Once installed, open Datagrip and select "New Project" from the   home screen.
+ 
+Install Datagrip on your computer by following the instructions on their       official website. Once installed, open Datagrip and select "New Project" from the home screen.
 
 In the "New Project" window, select "Database" as the project type and select "PostgreSQL" as the database type. Enter the username and password that you set up during the PostgreSQL installation process, as well as the name of the database that you created in step 2.
 
@@ -89,18 +90,15 @@ Click "Test Connection" to make sure that Datagrip can connect to your PostgreSQ
 
 Open VSCode and install the SQLAlchemy Python package by running the following command in the terminal:
 
-Copy code
-pip install sqlalchemy
+> pip install sqlalchemy
 Create a new Python file in VSCode and import the SQLAlchemy library:
 
 python
-Copy code
-from sqlalchemy import create_engine
+> from sqlalchemy import create_engine
 Create a new engine object in Python and connect it to your PostgreSQL database by running the following code:
 
 python
-Copy code
-engine = create_engine('postgresql://username:password@localhost/mydatabase')
+> engine = create_engine('postgresql://username:password@localhost/mydatabase')
 Make sure to replace "username" and "password" with the username and password that you set up during the PostgreSQL installation process, and "mydatabase" with the name of the database that you created in step 2.
 
 You can now use the SQLAlchemy library to manage your PostgreSQL database in Python. For example, you can create a new table by running the following code:
