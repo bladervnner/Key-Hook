@@ -1,4 +1,4 @@
-from sqlalchemy import Column, String, Integer, ForeignKey, DATETIME, ForeignKeyConstraint, UniqueConstraint
+from sqlalchemy import Column, String, Integer, ForeignKey, DateTime, ForeignKeyConstraint, UniqueConstraint
 from sqlalchemy.orm import relationship
 
 from orm_base import Base
@@ -28,7 +28,7 @@ class Requests(Base):
     employee_id = Column("employee_id", Integer, ForeignKey('employees.employee_id'), nullable=False, primary_key=True)
     room_number = Column("room_number", Integer, nullable=False, primary_key=True)
     building_name = Column("building_name", String(40), nullable=False, primary_key=True)
-    request_date = Column("request_date", DATETIME, nullable=False, primary_key=True)
+    request_date = Column("request_date", DateTime, nullable=False, primary_key=True)
     #Foreign Keys
     __table_args__ = (ForeignKeyConstraint(('room_number', 'building_name'),
                                            ('rooms.number', 'rooms.building_name')), {})
@@ -39,7 +39,7 @@ class Requests(Base):
     employee = relationship("Employees", back_populates="requests_list", viewonly=False)
 
     # create instance function
-    def __init__(self, room, employee, request_date: DATETIME):
+    def __init__(self, room, employee, request_date: DateTime):
         self.employee_id = employee.employee_id
         self.room_number = room.number
         self.building_name = room.building_name
@@ -55,9 +55,9 @@ class Issues(Base):
     employee_id = Column("employee_id", Integer, nullable=False)
     room_number = Column("room_number", Integer, nullable=False)
     building_name = Column("building_name", String(40), nullable=False)
-    request_date = Column("request_date", DATETIME, nullable=False, )
+    request_date = Column("request_date", DateTime, nullable=False, )
     key_serial_number = Column("key_serial_number", Integer, ForeignKey('keys.key_serial_number'), nullable=False)
-    issue_date = Column("issue_date", DATETIME, nullable=False)
+    issue_date = Column("issue_date", DateTime, nullable=False)
     #Foreign Keys
     __table_args__ = (ForeignKeyConstraint(('employee_id', 'room_number', 'building_name', 'request_date'),
                                            ('requests.employee_id', 'requests.room_number', 'requests.building_name',
@@ -73,7 +73,7 @@ class Issues(Base):
     key = relationship("Keys", back_populates="issues_list", viewonly=False)
 
     # create instance function
-    def __init__(self, issue_id: Integer, request, key, issue_date: DATETIME):
+    def __init__(self, issue_id: Integer, request, key, issue_date: DateTime):
         self.issue_id = issue_id
         self.employee_id = request.employee_id
         self.room_number = request.room_number
@@ -90,11 +90,11 @@ class Returns(Base):
     __tablename__ = 'returns'
     # attributes
     issue_id = Column("issue_id", Integer, ForeignKey('issues.issue_id'), nullable=False, primary_key=True)
-    return_date = Column("return_date", DATETIME, nullable=False)
+    return_date = Column("return_date", DateTime, nullable=False)
     # child relationships
     issue = relationship("Issues", back_populates="returns_list", viewonly=False)
 
-    def __init__(self, issue, return_date: DATETIME):
+    def __init__(self, issue, return_date: DateTime):
         self.issue_id = issue.issue_id
         self.return_date = return_date
 
@@ -103,11 +103,11 @@ class Losses(Base):
     __tablename__ = 'losses'
     # attributes
     issue_id = Column("issue_id", Integer, ForeignKey('issues.issue_id'), nullable=False, primary_key=True)
-    loss_date = Column("loss_date", DATETIME, nullable=False)
+    loss_date = Column("loss_date", DateTime, nullable=False)
     # child relationships
     issue = relationship("Issues", back_populates="losses_list", viewonly=False)
 
     # create instance function
-    def __init__(self, issue_id: Integer, loss_date: DATETIME):
+    def __init__(self, issue_id: Integer, loss_date: DateTime):
         self.issue_id = issue_id
         self.loss_date = loss_date
