@@ -1,13 +1,24 @@
+# Key-Hook
+
+Key-Hook is a Python based key and access management system developed using PostgreSQL and MongoDB.
+
+The project focuses on managing physical keys, employees, buildings, rooms, and access permissions. It allows users to create and issue keys, track lost keys, manage employee access requests, and generate reports showing which employees can access specific rooms.
+
+The project was developed in three phases:
+
+- Phase 1: Designed the database using business rules, UML models, and an entity-relationship diagram (ERD).
+- Phase 2: Implemented a relational database using PostgreSQL and SQLAlchemy, with a Python console application for managing records.
+- Phase 3: Reimplemented the system using MongoDB and PyMongo to explore a document-oriented approach to the same problem.
+
 ## Procedure Phase 1
 1. UML model all business rules from business rules (seperate file)
 2. For each of the business rules that cannot be implemented by the way the database is structured, write out pseudo code how those business rules will be implemented using Python code.
 3. Once UML model (seperate file) has been completed, the next step is to build an ERD diagram. We will not implement tables for the ERD diagram. Instead, SQLAlchemy will build the tables for us.
-3. Once UML model (seperate file) has been completed, the next step is to build an ERD diagram. We will not implement tables for the ERD diagram. Instead, SQLAlchemy will build the tables.
 
-# Description Phase 2
+## Description Phase 2
 Using SQLAlchemy to access a back-end database in PostgreSQL that is structured according to the phase 1 design
 The goal of this phase is to demonstrate the use of SQLAlchemy in a console application. Application uses a hybrid approach to populate some of the tables. Insert, Update, and Delete data are achieved using SQLAlchemy. The code design handles any data input from the user. 
-## Procedure Phase 2
+### Procedure Phase 2
 Used ERD from phase 1 and executed the CREATE TABLE statements that it produces. Wrote insert statements to populate: 
  * Employees, Buildings, rooms, doors, hooks, and any junction tables between any of those. 
  * Initial data was minimal, half-dozen or so data rows is enough for proof of concept. 
@@ -24,9 +35,9 @@ Used ERD from phase 1 and executed the CREATE TABLE statements that it produces.
  * Add a new door that can be opened by an existing hook
  * Update an access request to move it to a new employee
  * Report out all employees who can get into a room
-# Description Phase 3
+## Description Phase 3
 This part of the phase was mostly an exploratory version of phase 2. The point was to do everything we did in phase 2 but using MongoDB instead of SQLAlchemy. This however led to inefficient code as MongoDB has its own strengths that were not fully utilized. The code still works, and I plan to continue to optimize it. 
-## Procedure Phase 3
+### Procedure Phase 3
 Used UML from phase 1, the focus was on how to implement MongoDB. Had to be creative about how to capture decisions that were made regarding implementation strategy. 
 MongoDB has several tools:
 * Uniqueness constraints
@@ -74,36 +85,78 @@ Wrote Python application to update the rest of the collections with menu option 
 * Report out all the employees who can get into a room
   - Prompt for the room
   - List the employees by name
-# Installation
-Install PostgreSQL on your computer by following the instructions on their official website. Make sure to note down the username and password that you set up during the installation process.
 
-Create a new database in PostgreSQL by running the following command in the PostgreSQL command-line interface:
+## Installation
 
-sql
- > CREATE DATABASE mydatabase;
- 
-Install Datagrip on your computer by following the instructions on their       official website. Once installed, open Datagrip and select "New Project" from the home screen.
+### 1. Clone the repository
 
-In the "New Project" window, select "Database" as the project type and select "PostgreSQL" as the database type. Enter the username and password that you set up during the PostgreSQL installation process, as well as the name of the database that you created in step 2.
+```bash
+git clone https://github.com/bladervnner/Key-Hook.git
+cd Key-Hook
+```
 
-Click "Test Connection" to make sure that Datagrip can connect to your PostgreSQL database. If the test is successful, click "Create".
+### 2. Install dependencies
 
-Open VSCode and install the SQLAlchemy Python package by running the following command in the terminal:
+Make sure Python 3 and pip are installed.
 
-> pip install sqlalchemy
-Create a new Python file in VSCode and import the SQLAlchemy library:
+```bash
+python -m pip install -r requirements.txt
+```
 
-python
-> from sqlalchemy import create_engine
-Create a new engine object in Python and connect it to your PostgreSQL database by running the following code:
+### 3. Configure database connections
 
-python
-> engine = create_engine('postgresql://username:password@localhost/mydatabase')
-Make sure to replace "username" and "password" with the username and password that you set up during the PostgreSQL installation process, and "mydatabase" with the name of the database that you created in step 2.
+The project includes two database implementations:
 
-You can now use the SQLAlchemy library to manage your PostgreSQL database in Python. For example, you can create a new table by running the following code:
+- **Phase 2:** PostgreSQL with SQLAlchemy.
+- **Phase 3:** MongoDB with PyMongo.
 
-# Usage
-# Contributing
+Copy `.env.example` to a new file named `.env` in the project root.
+
+Update the connection strings with your own database credentials:
+
+```dotenv
+DATABASE_URL=postgresql+psycopg2://username:password@localhost:5432/keyhook
+MONGODB_URI=mongodb+srv://username:password@cluster.example.mongodb.net/
+```
+
+The `.env` file is excluded from Git to prevent credentials from being committed.
+
+### 4. Database setup
+
+For PostgreSQL, install PostgreSQL and create a database:
+
+```sql
+CREATE DATABASE keyhook;
+```
+
+For MongoDB, configure a MongoDB Atlas deployment and database user.
+
+Database schemas and initial records must be configured according to the corresponding phase's implementation before running the application.
+
+## Usage
+
+Key-Hook has two Python console applications, one using PostgreSQL and the other using MongoDB.
+
+### Phase 2: PostgreSQL
+
+From the repository root:
+
+```bash
+cd "Phase 2/Phase 2 Python"
+python main.py
+```
+
+### Phase 3: MongoDB
+
+From the repository root:
+
+```bash
+cd "Phase 3"
+python main.py
+```
+
+Both apps provide menu options for managing keys, employees, room access requests and generating access reports.
+
+**Note:** Both implementations require their respective databases to be configured and populated with the necessary initial records before use.
+## Contributing
 Contributions are welcome. If you find an issue, please open an issue on GitHub repository. If you would like to contribute code, please fork the repository and submit a pull request. 
-# License
