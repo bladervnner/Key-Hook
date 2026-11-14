@@ -1,16 +1,15 @@
-import getpass
 from pymongo import MongoClient
+import os
+from dotenv import load_dotenv
 
 
 class Utilities:
     # connects my cluster to the database
     @staticmethod
     def startup():
-        #print("Prompting for the password.")
-        #password = getpass.getpass(prompt='MongoDB password --> ')
-
         #change cluster to your string from atlas accordingly
-        cluster = "mongodb+srv://<db>:test@cluster0.k70iogb.mongodb.net/?retryWrites=true&w=majority"
+        load_dotenv()
+        cluster = os.environ["MONGODB_URI"]
         client = MongoClient(cluster)
         db = client.Hook_Project
         return db
